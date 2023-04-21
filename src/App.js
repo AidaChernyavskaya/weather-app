@@ -1,18 +1,33 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './styles/App.css';
 import SearchField from "./components/SearchField/SearchField";
-import Search from "./icons/search.png";
-import Windy from "./icons/wind.png";
-import Sunny from "./icons/sunny.png";
-import Cloudy from "./icons/clouds.png";
 import CardItem from "./components/CardItem/CardItem";
+import PostService from "./API/WeatherService";
 
 function App() {
+
+    const [forecast, setForecast] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect (() => {
+        fetchForecast();
+    }, [])
+
+    async function fetchForecast() {
+        setIsLoading(true);
+        setTimeout(async () => {
+            const forecast = await PostService.getForecast();
+            setForecast(forecast);
+            setIsLoading(false);
+        })
+    }
 
     return (
         <div className="App">
             <SearchField/>
-            <CardItem/>
+            {isLoading
+                ? <h1 style={{textAlign: 'center'}}>Loading</h1>
+                : <CardItem forecast = {forecast}/>}
         </div>
     );
 }

@@ -1,15 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Windy from "../../icons/wind.png";
 import Cloudy from "../../icons/clouds.png";
 import Sunny from "../../icons/sunny.png";
 import styles from "./CardItem.module.css";
 import cn from 'classnames';
 
-const CardItem = () => {
+const CardItem = ({forecast}) => {
+
+    if(!Object.keys(forecast).length) {
+        return (
+            <h1 style={{textAlign: 'center'}}>Ошибочка!</h1>
+        )
+    }
+    // {forecast.list[0].dt_txt}
+
+    console.log(forecast.city.name);
+    console.log(!Object.keys(forecast).length);
+
 
     return (
         <div className={cn(styles.card, styles.outline)}>
-            <h3 className={styles.card__date}>Вт, 11 апреля</h3>
+            <h3 className={styles.card__date}>{forecast.list[0].dt_txt}</h3>
             <div className={styles.card__breakpoints}>
                 <p>Ночь</p>
                 <p>Утро</p>
