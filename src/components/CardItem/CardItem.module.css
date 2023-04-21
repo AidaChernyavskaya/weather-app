@@ -1,0 +1,41 @@
+.outline {
+  border: 0.1rem solid black;
+  border-radius: 2rem;
+}
+
+.card {
+  width: 33rem;
+  padding: 1.5rem;
+  font-size: 1.4rem;
+}
+.card__date {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+.card__breakpoints {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.card__temperature {
+  display: flex;
+  justify-content: space-between;
+}
+.card__temperature_heading {
+  margin-bottom: 1.5rem;
+}
+.card__temperature p {
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+.card__icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.card__icons input {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+/*# sourceMappingURL=CardItem.module.css.map */
