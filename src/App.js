@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import './styles/App.css';
 import SearchField from "./components/SearchField/SearchField";
 import CardItem from "./components/CardItem/CardItem";
-import PostService from "./API/WeatherService";
+import WeatherService from "./API/WeatherService";
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
     async function fetchForecast() {
         setIsLoading(true);
         setTimeout(async () => {
-            const forecast = await PostService.getForecast();
+            const forecast = await WeatherService.getForecast(498817);
             setForecast(forecast);
             setIsLoading(false);
         })

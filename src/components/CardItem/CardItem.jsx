@@ -12,10 +12,8 @@ const CardItem = ({forecast}) => {
             <h1 style={{textAlign: 'center'}}>Ошибочка!</h1>
         )
     }
-    // {forecast.list[0].dt_txt}
 
     console.log(forecast.city.name);
-    console.log(!Object.keys(forecast).length);
 
 
     return (
