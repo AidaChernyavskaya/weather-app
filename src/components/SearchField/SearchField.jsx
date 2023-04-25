@@ -25,19 +25,21 @@ const SearchField = () => {
     }
 
     return (
-        <div>
-            <input
-                type={'text'}
-                className={styles.input}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                placeholder={'Поиск...'}
-                onKeyDown={handleKeyPress}
-            />
-            <input type={'image'} src={Search} className={styles.search_icon} onClick={submitSearch}/>
-            {value !== '' &&
-                <input type={'image'} src={Close} className={styles.close_icon} onClick={cancelSearch}/>
-            }
+        <div className={styles.search}>
+            <div className={styles.search_field}>
+                <input
+                    type={'text'}
+                    className={styles.input}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    placeholder={'Поиск...'}
+                    onKeyDown={handleKeyPress}
+                />
+                <input type={'image'} src={Search} className={styles.search_icon} onClick={submitSearch}/>
+                {value !== '' &&
+                    <input type={'image'} src={Close} className={styles.close_icon} onClick={cancelSearch}/>
+                }
+            </div>
         </div>
     );
 };

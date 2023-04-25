@@ -9,4 +9,64 @@ html {
   font-family: "Roboto Light", sans-serif;
 }
 
+.navbar {
+  background: teal;
+  height: 7rem;
+  width: 100%;
+  margin-bottom: 3.5rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-left: 6rem;
+  margin-bottom: 5rem;
+}
+.location__icon {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 0.5rem;
+}
+.location__name {
+  font-size: 2.4rem;
+}
+
+.interval {
+  height: 3rem;
+  margin-left: 6rem;
+  display: flex;
+}
+.interval__button {
+  width: 14rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.interval__button:not(:last-child) {
+  margin-right: 4.5rem;
+}
+.interval__duration {
+  color: #4B6DE6;
+  font-size: 1.6rem;
+}
+.interval__line {
+  width: 100%;
+  height: 0.5rem;
+  background: #FFBA75;
+}
+
+.clouds_background {
+  width: 35rem;
+  height: 27rem;
+  position: absolute;
+  right: 2rem;
+  bottom: 0;
+  z-index: -5;
+}
+
 /*# sourceMappingURL=App.css.map */
