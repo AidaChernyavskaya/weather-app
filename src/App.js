@@ -34,7 +34,7 @@ function App() {
             </div>
             <div className={'interval'}>
                 <button className={'interval__button'}>
-                    <p className={'interval__duration'}>3 дня</p>
+                    <p className={'interval__duration'}>1 день</p>
                     <div className={'interval__line'}></div>
                 </button>
                 <button className={'interval__button'}>
@@ -42,7 +42,7 @@ function App() {
                     <div className={'interval__line'}></div>
                 </button>
                 <button className={'interval__button'}>
-                    <p className={'interval__duration'}>3 дня</p>
+                    <p className={'interval__duration'}>5 дней</p>
                     <div className={'interval__line'}></div>
                 </button>
             </div>
