@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import Windy from "../../icons/wind.png";
-import Cloudy from "../../icons/clouds.png";
-import Sunny from "../../icons/sunny.png";
+import Wind from "../../icons/wind.png";
+import Clouds from "../../icons/clouds.png";
+import Clear from "../../icons/sunny.png";
 import styles from "./CardItem.module.css";
 import cn from 'classnames';
 
@@ -17,6 +17,22 @@ const getDateStr = (forecast) => {
     return `${time.getDate()} ${MONTHS[time.getMonth()]} ${time.getFullYear()} года`;
 };
 
+const getTimeBreakpoints = (forecast) => {
+    let breakpoints = [];
+    let time = new Date(forecast.list[0].dt_txt);
+    let hours = time.getHours();
+    if (hours === 0 || hours === 3){
+        breakpoints = ['Ночь', 'Утро', 'День', 'Вечер'];
+    } else if (hours === 6 || hours === 9) {
+        breakpoints = ['Утро', 'День', 'Вечер', 'Ночь'];
+    } else if (hours === 12 || hours === 15) {
+        breakpoints = ['День', 'Вечер', 'Ночь', 'Утро'];
+    } else {
+        breakpoints = ['Вечер', 'Ночь', 'Утро', 'День'];
+    }
+    return breakpoints;
+};
+
 const CardItem = ({forecast}) => {
 
     if(!Object.keys(forecast).length) {
@@ -24,21 +40,26 @@ const CardItem = ({forecast}) => {
             <h1 style={{textAlign: 'center'}}>Ошибочка!</h1>
         )
     }
+    let timeBreakpoints = getTimeBreakpoints(forecast);
+
+    // const getIcon = (i) => {
+    //     let iconsArr = [];
+    //     forecast.list.forEach(el => iconsArr.push(el.weather[0].main));
+    //     console.log(iconsArr);
+    //     return Clouds;
+    // }
 
     return (
         <div className={cn(styles.card, styles.outline)}>
             <h3 className={styles.card__date}>{getDateStr(forecast)}</h3>
             <div className={styles.card__breakpoints}>
-                <p>Ночь</p>
-                <p>Утро</p>
-                <p>День</p>
-                <p>Вечер</p>
+                {timeBreakpoints.map(point => <p>{point}</p>)}
             </div>
             <div className={styles.card__icons}>
-                <input type={'image'} src={Windy}/>
-                <input type={'image'} src={Cloudy}/>
-                <input type={'image'} src={Sunny}/>
-                <input type={'image'} src={Cloudy}/>
+                <input type={'image'} src={Clouds}/>
+                <input type={'image'} src={Clouds}/>
+                <input type={'image'} src={Clear}/>
+                <input type={'image'} src={Clouds}/>
             </div>
             <div className={styles.card__temperature_heading}>
                 <p>Температура воздуха, °C</p>
