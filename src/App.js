@@ -6,6 +6,7 @@ import WeatherService from "./API/WeatherService";
 import CloudsBackground from './icons/clouds-background.png';
 import Location from "./components/Location/Location";
 import Loader from "./components/Loader/Loader";
+import MyButton from "./components/MyButton/MyButton";
 
 function App() {
 
@@ -33,24 +34,15 @@ function App() {
                 ? <Loader/>
                 : <Location forecast = {forecast} />}
             <div className={'interval'}>
-                <button className={'interval__button'}>
-                    <p className={'interval__duration'}>1 день</p>
-                    <div className={'interval__line'}></div>
-                </button>
-                <button className={'interval__button'}>
-                    <p className={'interval__duration'}>3 дня</p>
-                    <div className={'interval__line'}></div>
-                </button>
-                <button className={'interval__button'}>
-                    <p className={'interval__duration'}>5 дней</p>
-                    <div className={'interval__line'}></div>
-                </button>
+                <MyButton duration={'1 день'} isActive={true}/>
+                <MyButton duration={'3 дня'} isActive={false}/>
+                <MyButton duration={'5 дней'} isActive={false}/>
             </div>
             {isLoading
                 ? <Loader/>
                 : <CardItem forecast = {forecast} />}
-            <input type={'image'} src={CloudsBackground} className={'clouds_background'}/>
-            {/*<Loader/>*/}
+            <input type={'image'} src={CloudsBackground} className={'clouds_background'} alt={'background'}/>
+            <Loader/>
         </div>
     );
 }
