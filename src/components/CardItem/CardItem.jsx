@@ -33,6 +33,13 @@ const getTimeBreakpoints = (forecast) => {
     return breakpoints;
 };
 
+const getIcons = (forecast) => {
+    let icons = [];
+    forecast.list.forEach(el => icons.push(el.weather[0].icon));
+    console.log(icons);
+    return [icons[0], icons[2], icons[4], icons[6]];
+}
+
 const CardItem = ({forecast}) => {
 
     if(!Object.keys(forecast).length) {
@@ -41,6 +48,7 @@ const CardItem = ({forecast}) => {
         )
     }
     let timeBreakpoints = getTimeBreakpoints(forecast);
+    let icons = getIcons(forecast);
 
     // const getIcon = (i) => {
     //     let iconsArr = [];
@@ -53,13 +61,12 @@ const CardItem = ({forecast}) => {
         <div className={cn(styles.card, styles.outline)}>
             <h3 className={styles.card__date}>{getDateStr(forecast)}</h3>
             <div className={styles.card__breakpoints}>
-                {timeBreakpoints.map(point => <p>{point}</p>)}
+                {timeBreakpoints.map((point, index) => <p key={index}>{point}</p>)}
             </div>
             <div className={styles.card__icons}>
-                <input type={'image'} src={Clouds}/>
-                <input type={'image'} src={Clouds}/>
-                <input type={'image'} src={Clear}/>
-                <input type={'image'} src={Clouds}/>
+                {icons.map((icon, index) =>
+                    <input type={'image'} key={index} src={`http://openweathermap.org/img/w/${icon}.png`} alt={'weather icon'}/>
+                )}
             </div>
             <div className={styles.card__temperature_heading}>
                 <p>Температура воздуха, °C</p>
