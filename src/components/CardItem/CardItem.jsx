@@ -1,7 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import Wind from "../../icons/wind.png";
 import Clouds from "../../icons/clouds.png";
-import Clear from "../../icons/sunny.png";
+import Sun from "../../icons/sunny.png";
+import DarkClouds from "../../icons/dark-clouds.png";
+import Lightning from "../../icons/lightning.png";
+import Moon from "../../icons/moon.png";
+import MoonCloud from "../../icons/moon+cloud.png";
+import Rain from "../../icons/rain.png";
+import Snow from "../../icons/snow.png";
+import SunCloud from "../../icons/sun+cloud.png";
 import styles from "./CardItem.module.css";
 import cn from 'classnames';
 
@@ -11,6 +18,24 @@ const MONTHS = [
     'июля', 'августа', 'сентября',
     'октября', 'ноября', 'декабря'
 ];
+const ICONS_ASSOCIATIONS = {
+    '01d': Sun,
+    '01n': Moon,
+    '02d': SunCloud,
+    '02n': MoonCloud,
+    '03d': Clouds,
+    '03n': Clouds,
+    '04d': DarkClouds,
+    '04n': DarkClouds,
+    '09d': Rain,
+    '09n': Rain,
+    '10d': Rain,
+    '10n': Rain,
+    '11d': Lightning,
+    '11n': Lightning,
+    '13d': Snow,
+    '13n': Snow
+};
 
 const getDateStr = (forecast) => {
     let time = new Date(forecast.list[0].dt_txt);
@@ -35,9 +60,19 @@ const getTimeBreakpoints = (forecast) => {
 
 const getIcons = (forecast) => {
     let icons = [];
+    let myIcons = [];
     forecast.list.forEach(el => icons.push(el.weather[0].icon));
-    console.log(icons);
-    return [icons[0], icons[2], icons[4], icons[6]];
+    icons.map(icon => myIcons.push(ICONS_ASSOCIATIONS[icon]));
+    return [myIcons[0], myIcons[2], myIcons[4], myIcons[6]];
+}
+
+const getTemperature = (forecast) => {
+    let temperature = [];
+    forecast.list.forEach(el => {
+        let num = Math.trunc(el.main.temp);
+        temperature.push(num > 0 ? `+${num}` : `${num}`);
+    });
+    return [temperature[0], temperature[2], temperature[4], temperature[6]];
 }
 
 const CardItem = ({forecast}) => {
@@ -49,13 +84,7 @@ const CardItem = ({forecast}) => {
     }
     let timeBreakpoints = getTimeBreakpoints(forecast);
     let icons = getIcons(forecast);
-
-    // const getIcon = (i) => {
-    //     let iconsArr = [];
-    //     forecast.list.forEach(el => iconsArr.push(el.weather[0].main));
-    //     console.log(iconsArr);
-    //     return Clouds;
-    // }
+    let temperature = getTemperature(forecast);
 
     return (
         <div className={cn(styles.card, styles.outline)}>
@@ -65,17 +94,14 @@ const CardItem = ({forecast}) => {
             </div>
             <div className={styles.card__icons}>
                 {icons.map((icon, index) =>
-                    <input type={'image'} key={index} src={`http://openweathermap.org/img/w/${icon}.png`} alt={'weather icon'}/>
+                    <input type={'image'} key={index} src={icon} alt={'weather icon'}/>
                 )}
             </div>
             <div className={styles.card__temperature_heading}>
                 <p>Температура воздуха, °C</p>
             </div>
             <div className={styles.card__temperature}>
-                <p>{Math.trunc(forecast.list[0].main.temp)}</p>
-                <p>{Math.trunc(forecast.list[2].main.temp)}</p>
-                <p>{Math.trunc(forecast.list[4].main.temp)}</p>
-                <p>{Math.trunc(forecast.list[6].main.temp)}</p>
+                {temperature.map((temp, index) => <p key={index}>{temp}</p>)}
             </div>
         </div>
     );
