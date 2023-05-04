@@ -5,6 +5,7 @@ import CardItem from "./components/CardItem/CardItem";
 import WeatherService from "./API/WeatherService";
 import CloudsBackground from './icons/clouds-background.png';
 import Location from "./components/Location/Location";
+import Loader from "./components/Loader/Loader";
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
             <div className={'navbar'}></div>
             <SearchField/>
             {isLoading
-                ? <h1 style={{textAlign: 'center'}}>Loading</h1>
+                ? <Loader/>
                 : <Location forecast = {forecast} />}
             <div className={'interval'}>
                 <button className={'interval__button'}>
@@ -46,9 +47,10 @@ function App() {
                 </button>
             </div>
             {isLoading
-                ? <h1 style={{textAlign: 'center'}}>Loading</h1>
+                ? <Loader/>
                 : <CardItem forecast = {forecast} />}
             <input type={'image'} src={CloudsBackground} className={'clouds_background'}/>
+            {/*<Loader/>*/}
         </div>
     );
 }
