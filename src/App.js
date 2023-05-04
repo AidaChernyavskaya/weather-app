@@ -3,8 +3,8 @@ import './styles/App.css';
 import SearchField from "./components/SearchField/SearchField";
 import CardItem from "./components/CardItem/CardItem";
 import WeatherService from "./API/WeatherService";
-import Location from './icons/location.png';
 import CloudsBackground from './icons/clouds-background.png';
+import Location from "./components/Location/Location";
 
 function App() {
 
@@ -28,10 +28,9 @@ function App() {
         <div className="App">
             <div className={'navbar'}></div>
             <SearchField/>
-            <div className={'location'}>
-                <input type={'image'} src={Location} className={'location__icon'}/>
-                <h1 className={'location__name'}>Санкт-Петербург</h1>
-            </div>
+            {isLoading
+                ? <h1 style={{textAlign: 'center'}}>Loading</h1>
+                : <Location forecast = {forecast} />}
             <div className={'interval'}>
                 <button className={'interval__button'}>
                     <p className={'interval__duration'}>1 день</p>

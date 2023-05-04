@@ -1,0 +1,16 @@
+.location {
+  display: flex;
+  align-items: center;
+  margin-left: 6rem;
+  margin-bottom: 5rem;
+}
+.location__icon {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 0.5rem;
+}
+.location__name {
+  font-size: 2.4rem;
+}
+
+/*# sourceMappingURL=Location.module.css.map */
