@@ -12,6 +12,7 @@ function App() {
 
     const [forecast, setForecast] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [variation, setVariation] = useState(0);
 
     useEffect (() => {
         fetchForecast();
@@ -26,6 +27,15 @@ function App() {
         })
     }
 
+    let content;
+    if (variation === 0) {
+        content = <CardItem forecast = {forecast} variation={variation} isLoading={isLoading}/>;
+    } else if (variation === 1){
+        content = <h1>HI</h1>;
+    } else if (variation === 2){
+        content = <h1>BOO</h1>;
+    }
+
     return (
         <div className="App">
             <div className={'navbar'}></div>
@@ -34,15 +44,12 @@ function App() {
                 ? <Loader/>
                 : <Location forecast = {forecast} />}
             <div className={'interval'}>
-                <MyButton duration={'1 день'} isActive={true}/>
-                <MyButton duration={'3 дня'} isActive={false}/>
-                <MyButton duration={'5 дней'} isActive={false}/>
+                <MyButton duration={'1 день'} isActive={true} onClick={() => setVariation(0)} variation={variation}/>
+                <MyButton duration={'3 дня'} isActive={false} onClick={() => setVariation(1)} variation={variation}/>
+                <MyButton duration={'5 дней'} isActive={false} onClick={() => setVariation(2)} variation={variation}/>
             </div>
-            {isLoading
-                ? <Loader/>
-                : <CardItem forecast = {forecast} />}
+            {content}
             <input type={'image'} src={CloudsBackground} className={'clouds_background'} alt={'background'}/>
-            <Loader/>
         </div>
     );
 }

@@ -11,6 +11,7 @@ import Snow from "../../icons/snow.png";
 import SunCloud from "../../icons/sun+cloud.png";
 import styles from "./CardItem.module.css";
 import cn from 'classnames';
+import Loader from "../Loader/Loader";
 
 const MONTHS = [
     'января', 'февраля', 'марта',
@@ -75,7 +76,7 @@ const getTemperature = (forecast) => {
     return [temperature[0], temperature[2], temperature[4], temperature[6]];
 }
 
-const CardItem = ({forecast}) => {
+const CardItem = ({forecast, isLoading}) => {
 
     if(!Object.keys(forecast).length) {
         return (
@@ -87,22 +88,28 @@ const CardItem = ({forecast}) => {
     let temperature = getTemperature(forecast);
 
     return (
-        <div className={cn(styles.card, styles.outline)}>
-            <h3 className={styles.card__date}>{getDateStr(forecast)}</h3>
-            <div className={styles.card__breakpoints}>
-                {timeBreakpoints.map((point, index) => <p key={index}>{point}</p>)}
-            </div>
-            <div className={styles.card__icons}>
-                {icons.map((icon, index) =>
-                    <input type={'image'} key={index} src={icon} alt={'weather icon'}/>
-                )}
-            </div>
-            <div className={styles.card__temperature_heading}>
-                <p>Температура воздуха, °C</p>
-            </div>
-            <div className={styles.card__temperature}>
-                {temperature.map((temp, index) => <p key={index}>{temp}</p>)}
-            </div>
+        <div>
+            {isLoading
+            ? <Loader/>
+            : <div className={cn(styles.card, styles.outline)}>
+                    <h3 className={styles.card__date}>{getDateStr(forecast)}</h3>
+                    <div className={styles.card__breakpoints}>
+                        {timeBreakpoints.map((point, index) => <p key={index}>{point}</p>)}
+                    </div>
+                    <div className={styles.card__icons}>
+                        {icons.map((icon, index) =>
+                            <input type={'image'} key={index} src={icon} alt={'weather icon'}/>
+                        )}
+                    </div>
+                    <div className={styles.card__temperature_heading}>
+                        <p>Температура воздуха, °C</p>
+                    </div>
+                    <div className={styles.card__temperature}>
+                        {temperature.map((temp, index) => <p key={index}>{temp}</p>)}
+                    </div>
+                </div>
+            }
+
         </div>
     );
 };
