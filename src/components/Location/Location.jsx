@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Location.module.css';
 import LocationIcon from '../../icons/location.png';
+import MyHtag from "../MyHtag/MyHtag";
 
 const Location = ({forecast}) => {
     if(!Object.keys(forecast).length) {
@@ -11,7 +12,7 @@ const Location = ({forecast}) => {
     return (
         <div className={styles.location}>
             <input type={'image'} src={LocationIcon} className={styles.location__icon} alt={'location icon'}/>
-            <h1 className={styles.location__name}>{forecast.city.name}</h1>
+            <MyHtag tag={"h1"}>{forecast.city.name}</MyHtag>
         </div>
     );
 };

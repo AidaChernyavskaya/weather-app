@@ -9,10 +9,6 @@
   font-size: 1.4rem;
   margin: 5rem auto auto 6rem;
 }
-.card__date {
-  margin-bottom: 1.5rem;
-  font-size: 1.6rem;
-}
 .card__breakpoints {
   display: flex;
   justify-content: space-between;

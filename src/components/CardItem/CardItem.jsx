@@ -12,6 +12,7 @@ import SunCloud from "../../icons/sun+cloud.png";
 import styles from "./CardItem.module.css";
 import cn from 'classnames';
 import Loader from "../Loader/Loader";
+import MyHtag from "../MyHtag/MyHtag";
 
 const MONTHS = [
     'января', 'февраля', 'марта',
@@ -92,7 +93,7 @@ const CardItem = ({forecast, isLoading}) => {
             {isLoading
             ? <Loader/>
             : <div className={cn(styles.card, styles.outline)}>
-                    <h3 className={styles.card__date}>{getDateStr(forecast)}</h3>
+                    <MyHtag tag={"h3"}>{getDateStr(forecast)}</MyHtag>
                     <div className={styles.card__breakpoints}>
                         {timeBreakpoints.map((point, index) => <p key={index}>{point}</p>)}
                     </div>
