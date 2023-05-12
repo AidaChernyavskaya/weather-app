@@ -13,6 +13,7 @@ import styles from "./CardItem.module.css";
 import cn from 'classnames';
 import Loader from "../Loader/Loader";
 import MyHtag from "../MyHtag/MyHtag";
+import TimePoints from "../TimePoints/TimePoints";
 
 const MONTHS = [
     'января', 'февраля', 'марта',
@@ -44,22 +45,6 @@ const getDateStr = (forecast) => {
     return `${time.getDate()} ${MONTHS[time.getMonth()]} ${time.getFullYear()} года`;
 };
 
-const getTimeBreakpoints = (forecast) => {
-    let breakpoints = [];
-    let time = new Date(forecast.list[0].dt_txt);
-    let hours = time.getHours();
-    if (hours === 0 || hours === 3){
-        breakpoints = ['Ночь', 'Утро', 'День', 'Вечер'];
-    } else if (hours === 6 || hours === 9) {
-        breakpoints = ['Утро', 'День', 'Вечер', 'Ночь'];
-    } else if (hours === 12 || hours === 15) {
-        breakpoints = ['День', 'Вечер', 'Ночь', 'Утро'];
-    } else {
-        breakpoints = ['Вечер', 'Ночь', 'Утро', 'День'];
-    }
-    return breakpoints;
-};
-
 const getIcons = (forecast) => {
     let icons = [];
     let myIcons = [];
@@ -84,7 +69,7 @@ const CardItem = ({forecast, isLoading}) => {
             <h1 style={{textAlign: 'center'}}>Ошибочка!</h1>
         )
     }
-    let timeBreakpoints = getTimeBreakpoints(forecast);
+    // let timeBreakpoints = getTimeBreakpoints(forecast);
     let icons = getIcons(forecast);
     let temperature = getTemperature(forecast);
 
@@ -94,9 +79,7 @@ const CardItem = ({forecast, isLoading}) => {
             ? <Loader/>
             : <div className={cn(styles.card, styles.outline)}>
                     <MyHtag tag={"h3"}>{getDateStr(forecast)}</MyHtag>
-                    <div className={styles.card__breakpoints}>
-                        {timeBreakpoints.map((point, index) => <p key={index}>{point}</p>)}
-                    </div>
+                    <TimePoints forecast={forecast}></TimePoints>
                     <div className={styles.card__icons}>
                         {icons.map((icon, index) =>
                             <input type={'image'} key={index} src={icon} alt={'weather icon'}/>
