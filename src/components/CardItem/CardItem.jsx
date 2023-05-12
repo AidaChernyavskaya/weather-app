@@ -1,57 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import Wind from "../../icons/wind.png";
-import Clouds from "../../icons/clouds.png";
-import Sun from "../../icons/sunny.png";
-import DarkClouds from "../../icons/dark-clouds.png";
-import Lightning from "../../icons/lightning.png";
-import Moon from "../../icons/moon.png";
-import MoonCloud from "../../icons/moon+cloud.png";
-import Rain from "../../icons/rain.png";
-import Snow from "../../icons/snow.png";
-import SunCloud from "../../icons/sun+cloud.png";
 import styles from "./CardItem.module.css";
 import cn from 'classnames';
 import Loader from "../Loader/Loader";
 import MyHtag from "../MyHtag/MyHtag";
 import TimePoints from "../TimePoints/TimePoints";
+import CardIcons from "../CardIcons/CardIcons";
 
-const MONTHS = [
+export const MONTHS = [
     'января', 'февраля', 'марта',
     'апреля', 'мая', 'июня',
     'июля', 'августа', 'сентября',
     'октября', 'ноября', 'декабря'
 ];
-const ICONS_ASSOCIATIONS = {
-    '01d': Sun,
-    '01n': Moon,
-    '02d': SunCloud,
-    '02n': MoonCloud,
-    '03d': Clouds,
-    '03n': Clouds,
-    '04d': DarkClouds,
-    '04n': DarkClouds,
-    '09d': Rain,
-    '09n': Rain,
-    '10d': Rain,
-    '10n': Rain,
-    '11d': Lightning,
-    '11n': Lightning,
-    '13d': Snow,
-    '13n': Snow
-};
 
 const getDateStr = (forecast) => {
     let time = new Date(forecast.list[0].dt_txt);
     return `${time.getDate()} ${MONTHS[time.getMonth()]} ${time.getFullYear()} года`;
 };
-
-const getIcons = (forecast) => {
-    let icons = [];
-    let myIcons = [];
-    forecast.list.forEach(el => icons.push(el.weather[0].icon));
-    icons.map(icon => myIcons.push(ICONS_ASSOCIATIONS[icon]));
-    return [myIcons[0], myIcons[2], myIcons[4], myIcons[6]];
-}
 
 const getTemperature = (forecast) => {
     let temperature = [];
@@ -69,8 +34,7 @@ const CardItem = ({forecast, isLoading}) => {
             <h1 style={{textAlign: 'center'}}>Ошибочка!</h1>
         )
     }
-    // let timeBreakpoints = getTimeBreakpoints(forecast);
-    let icons = getIcons(forecast);
+
     let temperature = getTemperature(forecast);
 
     return (
@@ -79,12 +43,8 @@ const CardItem = ({forecast, isLoading}) => {
             ? <Loader/>
             : <div className={cn(styles.card, styles.outline)}>
                     <MyHtag tag={"h3"}>{getDateStr(forecast)}</MyHtag>
-                    <TimePoints forecast={forecast}></TimePoints>
-                    <div className={styles.card__icons}>
-                        {icons.map((icon, index) =>
-                            <input type={'image'} key={index} src={icon} alt={'weather icon'}/>
-                        )}
-                    </div>
+                    <TimePoints forecast={forecast}/>
+                    <CardIcons forecast={forecast}/>
                     <div className={styles.card__temperature_heading}>
                         <p>Температура воздуха, °C</p>
                     </div>

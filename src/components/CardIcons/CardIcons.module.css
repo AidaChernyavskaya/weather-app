@@ -1,0 +1,11 @@
+.card__icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.card__icons input {
+  width: 4rem;
+  height: 4rem;
+}
+
+/*# sourceMappingURL=CardIcons.module.css.map */
