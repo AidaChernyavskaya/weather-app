@@ -9,25 +9,5 @@
   font-size: 1.4rem;
   margin: 5rem auto auto 6rem;
 }
-.card__temperature {
-  display: flex;
-  justify-content: space-between;
-}
-.card__temperature_heading {
-  margin-bottom: 1.5rem;
-}
-.card__temperature p {
-  font-weight: 800;
-  font-size: 1.6rem;
-}
-.card__icons {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-.card__icons input {
-  width: 4rem;
-  height: 4rem;
-}
 
 /*# sourceMappingURL=CardItem.module.css.map */
