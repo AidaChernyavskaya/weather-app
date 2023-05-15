@@ -1,0 +1,13 @@
+.card__temperature {
+  display: flex;
+  justify-content: space-between;
+}
+.card__temperature_heading {
+  margin-bottom: 1.5rem;
+}
+.card__temperature p {
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+/*# sourceMappingURL=TempValue.module.css.map */
