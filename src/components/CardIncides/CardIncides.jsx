@@ -16,13 +16,22 @@ const getDateStr = (forecast) => {
     return `${time.getDate()} ${MONTHS[time.getMonth()]} ${time.getFullYear()} года`;
 };
 
-const CardIncides = ({forecast}) => {
+const CardIncides = ({forecast, variation}) => {
+    let content;
+    if (variation === 0) {
+        content =   [<MyHtag tag={"h3"} key={0}>{getDateStr(forecast)}</MyHtag>,
+                    <TimePoints forecast={forecast} key={1}/>,
+                    <CardIcons forecast={forecast} key={2}/>,
+                    <TempValue forecast={forecast} key={3}/>];
+    } else if (variation === 1){
+        content = <h1>HI</h1>;
+    } else if (variation === 2){
+        content = <h1>BOO</h1>;
+    }
+
     return (
         <div>
-            <MyHtag tag={"h3"}>{getDateStr(forecast)}</MyHtag>
-            <TimePoints forecast={forecast}/>
-            <CardIcons forecast={forecast}/>
-            <TempValue forecast={forecast}/>
+            {content}
         </div>
     );
 };

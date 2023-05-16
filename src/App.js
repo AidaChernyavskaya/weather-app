@@ -27,15 +27,6 @@ function App() {
         })
     }
 
-    let content;
-    if (variation === 0) {
-        content = <CardItem forecast = {forecast} variation={variation} isLoading={isLoading}/>;
-    } else if (variation === 1){
-        content = <h1>HI</h1>;
-    } else if (variation === 2){
-        content = <h1>BOO</h1>;
-    }
-
     return (
         <div className="App">
             <div className={'navbar'}></div>
@@ -48,7 +39,7 @@ function App() {
                 <MyButton duration={'3 дня'} isActive={false} onClick={() => setVariation(1)} variation={variation}/>
                 <MyButton duration={'5 дней'} isActive={false} onClick={() => setVariation(2)} variation={variation}/>
             </div>
-            {content}
+            <CardItem forecast = {forecast} variation={variation} isLoading={isLoading}/>;
             <input type={'image'} src={CloudsBackground} className={'clouds_background'} alt={'background'}/>
         </div>
     );

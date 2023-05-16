@@ -4,7 +4,7 @@ import cn from 'classnames';
 import Loader from "../Loader/Loader";
 import CardIncides from "../CardIncides/CardIncides";
 
-const CardItem = ({forecast, isLoading}) => {
+const CardItem = ({forecast, isLoading, variation}) => {
 
     if(!Object.keys(forecast).length) {
         return (
@@ -17,7 +17,7 @@ const CardItem = ({forecast, isLoading}) => {
             {isLoading
             ? <Loader/>
             : <div className={cn(styles.card, styles.outline)}>
-                    <CardIncides forecast={forecast}/>
+                    <CardIncides forecast={forecast} variation={variation}/>
               </div>
             }
         </div>
