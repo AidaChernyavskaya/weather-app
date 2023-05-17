@@ -1,0 +1,11 @@
+.inner_card {
+  width: 30rem;
+}
+
+@media (max-width: 1060px) {
+  .inner_card {
+    width: 22rem;
+  }
+}
+
+/*# sourceMappingURL=InnerCard.module.css.map */

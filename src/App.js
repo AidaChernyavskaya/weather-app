@@ -35,9 +35,9 @@ function App() {
                 ? <Loader/>
                 : <Location forecast = {forecast} />}
             <div className={'interval'}>
-                <MyButton duration={'1 день'} isActive={true} onClick={() => setVariation(0)} variation={variation}/>
-                <MyButton duration={'3 дня'} isActive={false} onClick={() => setVariation(1)} variation={variation}/>
-                <MyButton duration={'5 дней'} isActive={false} onClick={() => setVariation(2)} variation={variation}/>
+                <MyButton duration={'1 день'} num={0} onClick={() => setVariation(0)} variation={variation}/>
+                <MyButton duration={'2 дня'} num={1} onClick={() => setVariation(1)} variation={variation}/>
+                <MyButton duration={'3 дня'} num={2} onClick={() => setVariation(2)} variation={variation}/>
             </div>
             {isLoading
                 ? <Loader/>
