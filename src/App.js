@@ -7,6 +7,8 @@ import CloudsBackground from './icons/clouds-background.png';
 import Location from "./components/Location/Location";
 import Loader from "./components/Loader/Loader";
 import MyButton from "./components/MyButton/MyButton";
+import cn from "classnames";
+import styles from "./components/CardItem/CardItem.module.css";
 
 function App() {
 
@@ -39,7 +41,12 @@ function App() {
                 <MyButton duration={'3 дня'} isActive={false} onClick={() => setVariation(1)} variation={variation}/>
                 <MyButton duration={'5 дней'} isActive={false} onClick={() => setVariation(2)} variation={variation}/>
             </div>
-            <CardItem forecast = {forecast} variation={variation} isLoading={isLoading}/>;
+            {isLoading
+                ? <Loader/>
+                : <div className={cn(styles.card, styles.outline)}>
+                    <CardItem forecast={forecast} variation={variation}/>
+                </div>
+            }
             <input type={'image'} src={CloudsBackground} className={'clouds_background'} alt={'background'}/>
         </div>
     );
