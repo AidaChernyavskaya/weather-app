@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from "./TempValue.module.css";
 
-const getTemperature = (forecast) => {
+const getTemperature = (forecast, order) => {
     let temperature = [];
     forecast.list.forEach(el => {
         let num = Math.trunc(el.main.temp);
         temperature.push(num > 0 ? `+${num}` : `${num}`);
     });
-    return [temperature[0], temperature[2], temperature[4], temperature[6]];
+    return [temperature[order[0]], temperature[order[1]], temperature[order[2]], temperature[order[3]]];
 }
 
-const TempValue = ({forecast}) => {
-    let temperature = getTemperature(forecast);
+const TempValue = ({forecast, order}) => {
+    let temperature = getTemperature(forecast, order);
 
     return (
         <div>

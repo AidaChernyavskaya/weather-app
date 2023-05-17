@@ -29,16 +29,16 @@ const ICONS_ASSOCIATIONS = {
     '13n': Snow
 };
 
-const getIcons = (forecast) => {
+const getIcons = (forecast, order) => {
     let icons = [];
     let myIcons = [];
     forecast.list.forEach(el => icons.push(el.weather[0].icon));
     icons.map(icon => myIcons.push(ICONS_ASSOCIATIONS[icon]));
-    return [myIcons[0], myIcons[2], myIcons[4], myIcons[6]];
+    return [myIcons[order[0]], myIcons[order[1]], myIcons[order[2]], myIcons[order[3]]];
 }
 
-const CardIcons = ({forecast}) => {
-    let icons = getIcons(forecast);
+const CardIcons = ({forecast, order}) => {
+    let icons = getIcons(forecast, order);
 
     return (
         <div className={styles.card__icons}>
