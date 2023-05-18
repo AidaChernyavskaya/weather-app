@@ -21,10 +21,10 @@ const getDateStr = (forecast, i) => {
 const InnerCard = ({forecast, order, dateNum}) => {
     return (
         <div className={styles.inner_card}>
-            <MyHtag tag={"h3"} key={0}>{getDateStr(forecast, dateNum)}</MyHtag>
-            <TimePoints forecast={forecast} key={1}/>
-            <CardIcons forecast={forecast} order={order} key={2}/>
-            <TempValue forecast={forecast} order={order} key={3}/>
+            <MyHtag tag={"h3"}>{getDateStr(forecast, dateNum)}</MyHtag>
+            <TimePoints forecast={forecast}/>
+            <CardIcons forecast={forecast} order={order}/>
+            <TempValue forecast={forecast} order={order}/>
         </div>
     );
 };

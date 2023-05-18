@@ -14,21 +14,21 @@ const CardItem = ({forecast, variation}) => {
     let content;
     if (variation === 0) {
         content =   [
-            <InnerCard forecast={forecast} order={[0, 2, 4, 6]} dateNum={0}/>
+            <InnerCard forecast={forecast} order={[0, 2, 4, 6]} dateNum={0} key={0}/>
         ];
     } else if (variation === 1){
         content = [
-            <InnerCard forecast={forecast} order={[0, 2, 4, 6]} dateNum={0}/>,
-            <div className={styles.divider} key={4}/>,
-            <InnerCard forecast={forecast} order={[8, 10, 12, 14]} dateNum={7}/>,
+            <InnerCard forecast={forecast} order={[0, 2, 4, 6]} dateNum={0} key={0}/>,
+            <div className={styles.divider} key={1}/>,
+            <InnerCard forecast={forecast} order={[8, 10, 12, 14]} dateNum={7} key={2}/>,
         ]
     } else if (variation === 2){
         content = [
-            <InnerCard forecast={forecast} order={[0, 2, 4, 6]} dateNum={0}/>,
-            <div className={styles.divider} key={4}/>,
-            <InnerCard forecast={forecast} order={[8, 10, 12, 14]} dateNum={7}/>,
-            <div className={styles.divider} key={4}/>,
-            <InnerCard forecast={forecast} order={[16, 18, 20, 22]} dateNum={14}/>,
+            <InnerCard forecast={forecast} order={[0, 2, 4, 6]} dateNum={0} key={0}/>,
+            <div className={styles.divider} key={1}/>,
+            <InnerCard forecast={forecast} order={[8, 10, 12, 14]} dateNum={7} key={2}/>,
+            <div className={styles.divider} key={3}/>,
+            <InnerCard forecast={forecast} order={[16, 18, 20, 22]} dateNum={14} key={4}/>,
         ]
     }
 
