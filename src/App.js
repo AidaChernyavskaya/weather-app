@@ -7,6 +7,8 @@ import CloudsBackground from './icons/clouds-background.png';
 import Location from "./components/Location/Location";
 import Loader from "./components/Loader/Loader";
 import MyButton from "./components/MyButton/MyButton";
+import Navbar from "./components/Navbar/Navbar";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
 
@@ -28,23 +30,25 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <div className={'navbar'}></div>
-            <SearchField/>
-            {isLoading
-                ? <Loader/>
-                : <Location forecast = {forecast} />}
-            <div className={'interval'}>
-                <MyButton duration={'1 день'} num={0} onClick={() => setVariation(0)} variation={variation}/>
-                <MyButton duration={'2 дня'} num={1} onClick={() => setVariation(1)} variation={variation}/>
-                <MyButton duration={'3 дня'} num={2} onClick={() => setVariation(2)} variation={variation}/>
+        <BrowserRouter>
+            <div className="App">
+                <Navbar/>
+                <SearchField/>
+                {isLoading
+                    ? <Loader/>
+                    : <Location forecast = {forecast} />}
+                <div className={'interval'}>
+                    <MyButton duration={'1 день'} num={0} onClick={() => setVariation(0)} variation={variation}/>
+                    <MyButton duration={'2 дня'} num={1} onClick={() => setVariation(1)} variation={variation}/>
+                    <MyButton duration={'3 дня'} num={2} onClick={() => setVariation(2)} variation={variation}/>
+                </div>
+                {isLoading
+                    ? <Loader/>
+                    : <CardItem forecast={forecast} variation={variation}/>
+                }
+                <input type={'image'} src={CloudsBackground} className={'clouds_background'} alt={'background'}/>
             </div>
-            {isLoading
-                ? <Loader/>
-                : <CardItem forecast={forecast} variation={variation}/>
-            }
-            <input type={'image'} src={CloudsBackground} className={'clouds_background'} alt={'background'}/>
-        </div>
+        </BrowserRouter>
     );
 }
 

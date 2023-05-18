@@ -9,13 +9,6 @@ html {
   font-family: "Roboto Light", sans-serif;
 }
 
-.navbar {
-  background: teal;
-  height: 7rem;
-  width: 100%;
-  margin-bottom: 3.5rem;
-}
-
 .interval {
   height: 3rem;
   margin-left: 6rem;
