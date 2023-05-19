@@ -7,8 +7,8 @@ import {Link} from 'react-router-dom';
 const Navbar = () => {
     return (
         <div className={styles.navbar}>
-            <input type={'image'} src={ToDarkTheme} alt={''}/>
-            <input type={'image'} src={Logo} alt={''}/>
+            <input type={'image'} src={ToDarkTheme} className={styles.navbar__theme} alt={''}/>
+            <input type={'image'} src={Logo} className={styles.navbar__logo} alt={''}/>
             <div className={styles.navbar__links}>
                 <Link to={'/about'}>О приложении</Link>
                 <Link to={'/main'}>Главная</Link>

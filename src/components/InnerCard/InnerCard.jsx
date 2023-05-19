@@ -14,7 +14,6 @@ const MONTHS = [
 
 const getDateStr = (forecast, i) => {
     let time = new Date(forecast.list[i].dt_txt);
-    console.log(time);
     return `${time.getDate()} ${MONTHS[time.getMonth()]} ${time.getFullYear()} года`;
 };
 

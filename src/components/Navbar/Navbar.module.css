@@ -1,8 +1,36 @@
 .navbar {
-  background: teal;
   height: 7rem;
   width: 100%;
   margin-bottom: 3.5rem;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: minmax(min-content, 25.9rem) auto max-content;
+  align-items: center;
+}
+.navbar__theme {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  grid-column: 1/2;
+}
+.navbar__logo {
+  width: 19rem;
+  height: 6rem;
+  grid-column: 2/3;
+  justify-self: center;
+  cursor: default;
+}
+.navbar__links {
+  grid-column: 3/4;
+}
+.navbar__links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+  font-size: 1.6rem;
+}
+.navbar__links a:not(:last-child) {
+  margin-right: 1.5rem;
 }
 
 /*# sourceMappingURL=Navbar.module.css.map */
