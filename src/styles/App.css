@@ -55,6 +55,12 @@ html {
   height: 20rem;
 }
 
+.about {
+  margin-top: 20rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .logo {
   width: 95rem;
   height: 35rem;
