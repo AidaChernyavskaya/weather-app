@@ -39,12 +39,28 @@ html {
 }
 
 .clouds_background {
-  width: 35rem;
-  height: 27rem;
   position: absolute;
+  z-index: -5;
+}
+.clouds_background__forecast {
   right: 2rem;
   bottom: 0;
-  z-index: -5;
+  width: 35rem;
+  height: 27rem;
+}
+.clouds_background__main {
+  left: 2rem;
+  bottom: 1rem;
+  width: 28rem;
+  height: 20rem;
+}
+
+.logo {
+  width: 95rem;
+  height: 35rem;
+  cursor: default;
+  display: block;
+  margin: 0 auto 5rem auto;
 }
 
 /*# sourceMappingURL=App.css.map */

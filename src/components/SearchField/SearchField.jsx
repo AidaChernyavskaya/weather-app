@@ -3,7 +3,7 @@ import Search from "../../icons/search.png";
 import Close from "../../icons/close.png";
 import styles from './SearchField.module.css';
 
-const SearchField = () => {
+const SearchField = ({text}) => {
     const [value, setValue] = useState('');
 
     const submitSearch = () => {
@@ -32,7 +32,7 @@ const SearchField = () => {
                     className={styles.input}
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
-                    placeholder={'Поиск...'}
+                    placeholder={text}
                     onKeyDown={handleKeyPress}
                 />
                 <input type={'image'} src={Search} className={styles.search_icon} onClick={submitSearch}/>

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Navbar from "../components/Navbar/Navbar";
 import SearchField from "../components/SearchField/SearchField";
 import Loader from "../components/Loader/Loader";
 import Location from "../components/Location/Location";
@@ -29,7 +28,7 @@ const Forecast = () => {
     return (
         <div>
             <div className="App">
-                <SearchField/>
+                <SearchField text={'Поиск...'}/>
                 {isLoading
                     ? <Loader/>
                     : <Location forecast = {forecast} />}
@@ -42,7 +41,12 @@ const Forecast = () => {
                     ? <Loader/>
                     : <CardItem forecast={forecast} variation={variation}/>
                 }
-                <input type={'image'} src={CloudsBackground} className={'clouds_background'} alt={'background'}/>
+                <input
+                    type={'image'}
+                    src={CloudsBackground}
+                    className={'clouds_background clouds_background__forecast'}
+                    alt={'background'}
+                />
             </div>
         </div>
     );
