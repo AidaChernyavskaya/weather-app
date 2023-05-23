@@ -3,11 +3,11 @@ import Search from "../../icons/search.png";
 import Close from "../../icons/close.png";
 import styles from './SearchField.module.css';
 
-const SearchField = ({text}) => {
+const SearchField = ({text, setName}) => {
     const [value, setValue] = useState('');
 
     const submitSearch = () => {
-        console.log(value);
+        setName(value);
         setValue('');
     }
 

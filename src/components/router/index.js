@@ -1,4 +1,3 @@
-import Navbar from "../Navbar/Navbar";
 import Forecast from "../../pages/Forecast";
 import Main from "../../pages/Main";
 import About from "../../pages/About";

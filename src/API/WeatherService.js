@@ -25,4 +25,14 @@ export default class PostService {
         });
         return response.data;
     }
+
+    static async getCoords(name) {
+        const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?`, {
+            params: {
+                q: name,
+                appid: process.env.REACT_APP_APPID,
+            }
+        });
+        return response.data;
+    }
 }
