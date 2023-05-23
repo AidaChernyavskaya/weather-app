@@ -1,10 +1,11 @@
 import axios from "axios";
 
 export default class PostService {
-    static async getForecast(id) {
+    static async getForecast(lat,lon) {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast`, {
             params: {
-                id: id,
+                lat: lat,
+                lon: lon,
                 units: 'metric',
                 appid: process.env.REACT_APP_APPID,
                 lang: 'ru'

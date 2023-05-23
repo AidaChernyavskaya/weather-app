@@ -19,7 +19,7 @@ const Forecast = () => {
     async function fetchForecast() {
         setIsLoading(true);
         setTimeout(async () => {
-            const forecast = await WeatherService.getForecast(498817);
+            const forecast = await WeatherService.getForecast(59.9, 30.3);
             setForecast(forecast);
             setIsLoading(false);
         })
