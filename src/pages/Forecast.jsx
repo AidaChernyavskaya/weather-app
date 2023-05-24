@@ -13,17 +13,16 @@ const SPB_LAT = 59.9;
 
 const Forecast = () => {
     const [forecast, setForecast] = useState([]);
-    // const [coords, setCoords] = useState([]);
     const [name, setName] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [variation, setVariation] = useState(0);
+
     const [params, setParams] = useSearchParams();
     const lat = params.get('lat');
     const lon = params.get('lon');
 
     useEffect (() => {
         fetchForecast();
-        // fetchCoords();
     }, [])
 
     async function fetchForecast() {
@@ -37,16 +36,6 @@ const Forecast = () => {
             setIsLoading(false);
         })
     }
-
-    // async function fetchCoords() {
-    //     setIsLoading(true);
-    //     setTimeout(async () => {
-    //         const coords = await WeatherService.getCoords('Москва');
-    //         setCoords(coords);
-    //         setIsLoading(false);
-    //         console.log(coords[0].lat);
-    //     })
-    // }
 
     return (
         <div>
