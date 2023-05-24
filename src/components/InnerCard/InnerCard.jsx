@@ -1,5 +1,5 @@
 import React from 'react';
-import MyHtag from "../MyHtag/MyHtag";
+import Htag from "../Htag/Htag";
 import TimePoints from "../TimePoints/TimePoints";
 import CardIcons from "../CardIcons/CardIcons";
 import TempValue from "../TempValue/TempValue";
@@ -20,7 +20,7 @@ const getDateStr = (forecast, i) => {
 const InnerCard = ({forecast, order, dateNum}) => {
     return (
         <div className={styles.inner_card}>
-            <MyHtag tag={"h3"}>{getDateStr(forecast, dateNum)}</MyHtag>
+            <Htag tag={"h3"}>{getDateStr(forecast, dateNum)}</Htag>
             <TimePoints forecast={forecast}/>
             <CardIcons forecast={forecast} order={order}/>
             <TempValue forecast={forecast} order={order}/>

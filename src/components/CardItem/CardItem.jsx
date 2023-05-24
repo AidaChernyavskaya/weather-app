@@ -7,7 +7,7 @@ const CardItem = ({forecast, variation}) => {
 
     if(!Object.keys(forecast).length) {
         return (
-            <h1 style={{textAlign: 'center'}}>Ошибочка!</h1>
+            <h1 style={{textAlign: 'center'}}>Проверьте правильность введенного запроса...</h1>
         )
     }
 
