@@ -6,37 +6,39 @@ import MyButton from "../components/MyButton/MyButton";
 import CardItem from "../components/CardItem/CardItem";
 import CloudsBackground from "../icons/clouds-background.png";
 import WeatherService from "../API/WeatherService";
+import {useSearchParams} from "react-router-dom";
 
 const Forecast = () => {
     const [forecast, setForecast] = useState([]);
-    const [coords, setCoords] = useState([]);
+    // const [coords, setCoords] = useState([]);
     const [name, setName] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [variation, setVariation] = useState(0);
+    const [params, setParams] = useSearchParams();
 
     useEffect (() => {
         fetchForecast();
-        fetchCoords();
+        // fetchCoords();
     }, [])
 
     async function fetchForecast() {
         setIsLoading(true);
         setTimeout(async () => {
-            const forecast = await WeatherService.getForecast(59.9, 30.3);
+            const forecast = await WeatherService.getForecast(params.get('lat'), params.get('lon'));
             setForecast(forecast);
             setIsLoading(false);
         })
     }
 
-    async function fetchCoords() {
-        setIsLoading(true);
-        setTimeout(async () => {
-            const coords = await WeatherService.getCoords('Москва');
-            setCoords(coords);
-            setIsLoading(false);
-            console.log(coords[0].lat);
-        })
-    }
+    // async function fetchCoords() {
+    //     setIsLoading(true);
+    //     setTimeout(async () => {
+    //         const coords = await WeatherService.getCoords('Москва');
+    //         setCoords(coords);
+    //         setIsLoading(false);
+    //         console.log(coords[0].lat);
+    //     })
+    // }
 
     return (
         <div>
