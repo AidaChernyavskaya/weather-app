@@ -6,13 +6,13 @@ import MyHtag from "../MyHtag/MyHtag";
 const Location = ({forecast}) => {
     if(!Object.keys(forecast).length) {
         return (
-            <h1 style={{textAlign: 'center'}}>Ошибочка!</h1>
+            <h1 style={{textAlign: 'center', marginBottom: '3rem'}}>Oшибка!</h1>
         )
     }
     return (
         <div className={styles.location}>
             <input type={'image'} src={LocationIcon} className={styles.location__icon} alt={'location icon'}/>
-            <MyHtag tag={"h1"}>{forecast.city.name}</MyHtag>
+            <MyHtag tag={"h1"}>{forecast.city.name === '' ? 'Неизвестно' : forecast.city.name}</MyHtag>
         </div>
     );
 };
