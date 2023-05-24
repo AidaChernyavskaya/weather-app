@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from "./MyHtag.module.css";
+import styles from "./Htag.module.css";
 
-const MyHtag = ({tag, children}) => {
+const Htag = ({tag, children}) => {
     switch(tag) {
         case "h1":
             return <h1 className={styles.location__name}>{children}</h1>;
@@ -14,4 +14,4 @@ const MyHtag = ({tag, children}) => {
     }
 };
 
-export default MyHtag;
+export default Htag;

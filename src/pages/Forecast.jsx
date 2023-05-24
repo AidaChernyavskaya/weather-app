@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import SearchField from "../components/SearchField/SearchField";
 import Loader from "../components/Loader/Loader";
 import Location from "../components/Location/Location";
-import MyButton from "../components/MyButton/MyButton";
+import Button from "../components/Button/Button";
 import CardItem from "../components/CardItem/CardItem";
 import CloudsBackground from "../icons/clouds-background.png";
 import WeatherService from "../API/WeatherService";
@@ -57,9 +57,9 @@ const Forecast = () => {
                     : <div>
                         <Location forecast = {forecast} />
                         <div className={'interval'}>
-                            <MyButton duration={'1 день'} num={0} onClick={() => setVariation(0)} variation={variation}/>
-                            <MyButton duration={'2 дня'} num={1} onClick={() => setVariation(1)} variation={variation}/>
-                            <MyButton duration={'3 дня'} num={2} onClick={() => setVariation(2)} variation={variation}/>
+                            <Button duration={'1 день'} num={0} onClick={() => setVariation(0)} variation={variation}/>
+                            <Button duration={'2 дня'} num={1} onClick={() => setVariation(1)} variation={variation}/>
+                            <Button duration={'3 дня'} num={2} onClick={() => setVariation(2)} variation={variation}/>
                         </div>
                         <CardItem forecast={forecast} variation={variation}/>
                     </div>}
