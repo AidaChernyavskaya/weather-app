@@ -11,8 +11,7 @@ const Navbar = () => {
             <input type={'image'} src={Logo} className={styles.navbar__logo} alt={''}/>
             <div className={styles.navbar__links}>
                 <Link to={'/about'}>О приложении</Link>
-                <Link to={'/main'}>Главная</Link>
-                <Link to={'/forecast'}>Прогноз</Link>
+                <Link to={'/'}>Главная</Link>
             </div>
         </div>
     );

@@ -5,6 +5,6 @@ import About from "../../pages/About";
 
 export const routes = [
     {path: '/about', element: <About/>},
-    {path: '/main', element: <Main/>},
+    {path: '/', element: <Main/>},
     {path: '/forecast', element: <Forecast/>},
 ]
