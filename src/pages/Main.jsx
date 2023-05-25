@@ -1,14 +1,35 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import LogoBig from "../icons/logo-big.png";
 import SearchField from "../components/SearchField/SearchField";
 import CloudsBackground from "../icons/clouds-background.png";
+import WeatherService from "../API/WeatherService";
 
 const Main = () => {
     const [name, setName] = useState('');
+    const [places, setPlaces] = useState([]);
+
+    useEffect(() => {
+        if (name.length !== 0) fetchCoords();
+    }, [name])
+
+    async function fetchCoords() {
+        setTimeout(async () => {
+            const coords = await WeatherService.getCoords(name);
+            setPlaces(coords);
+            console.log(coords);
+        })
+    }
+
     return (
         <div>
             <input type={'image'} src={LogoBig} alt={''} className={'logo'}/>
-            <SearchField text={'Узнай погоду в своем городе...'} setName={setName}/>
+            <SearchField
+                text={'Узнай погоду в своем городе...'}
+                setName={setName}
+                name={name}
+                places={places}
+                setPlaces={setPlaces}
+            />
             <input
                 type={'image'}
                 src={CloudsBackground}

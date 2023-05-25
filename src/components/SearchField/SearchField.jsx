@@ -7,6 +7,9 @@ import cn from "classnames";
 const SearchField = ({text, setName, name, places}) => {
     const submitSearch = () => {
         setName('');
+        if (places.length !== 0) {
+            window.location.replace(`/forecast?lat=${places[0].lat.toFixed(1)}&lon=${places[0].lon.toFixed(1)}`);
+        }
     }
 
     const cancelSearch = () => {

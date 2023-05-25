@@ -43,12 +43,10 @@ const Forecast = () => {
     }
 
     async function fetchCoords() {
-        setIsLoading(true);
         setTimeout(async () => {
             const coords = await WeatherService.getCoords(name);
             setPlaces(coords);
             console.log(coords);
-            setIsLoading(false);
         })
     }
 
