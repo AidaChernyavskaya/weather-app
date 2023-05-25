@@ -17,6 +17,11 @@
   font-size: 1.6rem
   font-weight: 400
   background: transparent
+  &:focus
+    outline: none
+  &__open
+    border-radius: 2rem 2rem 0 0
+    border-bottom: none
 
 .search_icon
   width: 2.5rem
@@ -33,3 +38,26 @@
   top: 1.2rem
   left: 65.4rem
   z-index: 2
+
+.dropdown
+  width: 100%
+  background: white
+  border: .3rem solid black
+  border-top: none
+  border-radius: 0 0 2rem 2rem
+  display: block
+  hr
+    width: 96%
+    margin: 0 auto 1rem auto
+  &__menu
+    list-style: none
+  &__item
+    font-size: 1.4rem
+    cursor: pointer
+    padding: 0.7rem 1.5rem 0.7rem 1.5rem
+    &:hover
+      background: #f8f8f8
+      font-weight: bold
+      border-radius: 2rem
+  &__close
+    display: none
