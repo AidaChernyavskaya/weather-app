@@ -74,7 +74,10 @@
 .dropdown__item:hover {
   background: #f8f8f8;
   font-weight: bold;
-  border-radius: 2rem;
+}
+.dropdown__item:last-child {
+  padding-bottom: 1rem;
+  border-radius: 0 0 2rem 2rem;
 }
 .dropdown__close {
   display: none;
