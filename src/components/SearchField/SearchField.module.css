@@ -66,6 +66,8 @@
   font-size: 1.4rem;
   cursor: pointer;
   padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 .dropdown__item:hover {
   background: #f8f8f8;
@@ -74,6 +76,19 @@
 }
 .dropdown__close {
   display: none;
+}
+.dropdown a {
+  text-decoration: none;
+  color: black;
+}
+
+.warning {
+  font-size: 1.4rem;
+  font-weight: lighter;
+  padding: 1.7rem 0 1.7rem 1rem;
+  text-align: center;
+  font-style: italic;
+  color: dimgray;
 }
 
 /*# sourceMappingURL=SearchField.module.css.map */
