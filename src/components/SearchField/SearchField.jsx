@@ -27,29 +27,21 @@ const SearchField = ({text, setName}) => {
 
     return (
         <div className={styles.search}>
-            <div className={styles.search_field}>
-                <input
-                    type={'text'}
-                    className={cn(styles.input, value.length >= 1 && styles.input__open)}
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    placeholder={text}
-                    onKeyDown={handleKeyPress}
-                />
-                <div className={value.length >= 1 ? styles.dropdown : styles.dropdown__close}>
-                    <hr />
-                    <ul className={styles.dropdown__menu}>
-                        <li className={styles.dropdown__item}>Example1</li>
-                        <li className={styles.dropdown__item}>Example11111111111</li>
-                    </ul>
-                </div>
-
+            <div className={cn (styles.search_field, value.length >= 1 && styles.search_field__open )}>
                 <input
                     type={'image'}
                     src={Search}
                     className={styles.search_icon}
                     onClick={submitSearch}
                     alt={'search icon'}
+                />
+                <input
+                    type={'text'}
+                    className={styles.input}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    placeholder={text}
+                    onKeyDown={handleKeyPress}
                 />
                 {value !== '' &&
                     <input
@@ -60,6 +52,13 @@ const SearchField = ({text, setName}) => {
                         alt={'close icon'}
                     />
                 }
+            </div>
+            <div className={value.length >= 1 ? styles.dropdown : styles.dropdown__close}>
+                <hr />
+                <ul className={styles.dropdown__menu}>
+                    <li className={styles.dropdown__item}>Example1</li>
+                    <li className={styles.dropdown__item}>Example11111111111</li>
+                </ul>
             </div>
         </div>
     );
