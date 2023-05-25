@@ -4,18 +4,17 @@ import Close from "../../icons/close.png";
 import styles from './SearchField.module.css';
 import cn from "classnames";
 
-const SearchField = ({text, setName}) => {
-    const [value, setValue] = useState('');
-
-    const places = [{name: 'Санкт-Петербург', lat: 2, lon: 4}, {name: 'Сочи', lat: 56, lon: 78}];
-
+const SearchField = ({text, setName, name, places}) => {
     const submitSearch = () => {
-        setName(value);
-        setValue('');
+        setName('');
     }
 
     const cancelSearch = () => {
-        setValue('');
+        setName('');
+    }
+
+    const handleChange = (event) => {
+        setName(event.target.value);
     }
 
     const handleKeyPress = (event) => {
@@ -29,7 +28,7 @@ const SearchField = ({text, setName}) => {
 
     return (
         <div className={styles.search}>
-            <div className={cn (styles.search_field, value.length >= 1 && styles.search_field__open )}>
+            <div className={cn (styles.search_field, name.length >= 1 && styles.search_field__open )}>
                 <input
                     type={'image'}
                     src={Search}
@@ -40,12 +39,12 @@ const SearchField = ({text, setName}) => {
                 <input
                     type={'text'}
                     className={styles.input}
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    value={name}
+                    onChange={handleChange}
                     placeholder={text}
                     onKeyDown={handleKeyPress}
                 />
-                {value !== '' &&
+                {name !== '' &&
                     <input
                         type={'image'}
                         src={Close}
@@ -55,12 +54,16 @@ const SearchField = ({text, setName}) => {
                     />
                 }
             </div>
-            <div className={value.length >= 1 ? styles.dropdown : styles.dropdown__close}>
+            <div className={name.length >= 1 ? styles.dropdown : styles.dropdown__close}>
                 <hr />
                 <ul className={styles.dropdown__menu}>
                     {places.map((place, index) =>
-                        <a href={`/forecast?lat=${place.lat}&lon=${place.lon}`} className={styles.dropdown__item}>
-                            {place.name}
+                        <a
+                            href={`/forecast?lat=${place.lat.toFixed(1)}&lon=${place.lon.toFixed(1)}`}
+                            className={styles.dropdown__item}
+                            key={index}
+                        >
+                            {place.name}<span>, {place.state}</span>
                         </a>
                     )}
                     {places.length === 0 && <div className={styles.warning}>Местоположение не найдено</div>}
