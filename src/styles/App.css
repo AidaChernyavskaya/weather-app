@@ -56,9 +56,14 @@ html {
 }
 
 .about {
-  margin-top: 20rem;
+  margin: 20rem auto auto auto;
+  width: 80%;
   font-size: 2rem;
-  text-align: center;
+  text-align: justify;
+}
+.about a {
+  text-decoration: none;
+  color: #4B6DE6;
 }
 
 .logo {
