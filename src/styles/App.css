@@ -8,6 +8,11 @@ html {
   font-size: 62.5%;
   font-family: "Roboto Light", sans-serif;
 }
+@media (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+}
 
 .interval {
   height: 3rem;
@@ -67,6 +72,31 @@ html {
   cursor: default;
   display: block;
   margin: 0 auto 5rem auto;
+}
+@media (max-width: 950px) {
+  .logo {
+    width: 75rem;
+    height: 29rem;
+  }
+}
+@media (max-width: 750px) {
+  .logo {
+    width: 55rem;
+    height: 22rem;
+  }
+}
+@media (max-width: 600px) {
+  .logo {
+    margin-bottom: 10rem;
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 450px) {
+  .logo {
+    width: 39rem;
+    height: 17rem;
+    margin-top: 10rem;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

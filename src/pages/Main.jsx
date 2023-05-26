@@ -23,7 +23,7 @@ const Main = () => {
 
     return (
         <div>
-            <Navbar logo={false}/>
+            <Navbar logo={false} page={'main'}/>
             <input type={'image'} src={LogoBig} alt={''} className={'logo'}/>
             <SearchField
                 text={'Узнай погоду в своем городе...'}

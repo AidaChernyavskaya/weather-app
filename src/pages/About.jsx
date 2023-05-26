@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 const About = () => {
     return (
         <div>
-            <Navbar logo={true}/>
+            <Navbar logo={true} page={'about'}/>
             <p className={'about'}>Данное приложение сделано в учебных целях...</p>
         </div>
 

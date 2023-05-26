@@ -52,7 +52,7 @@ const Forecast = () => {
 
     return (
         <div className="App">
-            <Navbar logo={true}/>
+            <Navbar logo={true} page={'forecast'}/>
             <SearchField text={'Поиск...'} setName={setName} name={name} places={places} setPlaces={setPlaces}/>
             {isLoading
                 ? <Loader/>

@@ -25,12 +25,19 @@
 }
 .navbar__links a {
   text-decoration: none;
-  color: black;
+  color: #7b7b7b;
   font-weight: 300;
   font-size: 1.6rem;
 }
 .navbar__links a:not(:last-child) {
-  margin-right: 1.5rem;
+  margin-right: 2rem;
+}
+.navbar__links a:hover {
+  color: black;
+}
+
+.active {
+  color: black !important;
 }
 
 /*# sourceMappingURL=Navbar.module.css.map */
