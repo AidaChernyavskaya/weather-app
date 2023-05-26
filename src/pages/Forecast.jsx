@@ -7,6 +7,7 @@ import CardItem from "../components/CardItem/CardItem";
 import CloudsBackground from "../icons/clouds-background.png";
 import WeatherService from "../API/WeatherService";
 import {useSearchParams} from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
 
 const SPB_LON = 30.19;
 const SPB_LAT = 59.9;
@@ -50,27 +51,26 @@ const Forecast = () => {
     }
 
     return (
-        <div>
-            <div className="App">
-                <SearchField text={'Поиск...'} setName={setName} name={name} places={places} setPlaces={setPlaces}/>
-                {isLoading
-                    ? <Loader/>
-                    : <div>
-                        <Location forecast = {forecast} />
-                        <div className={'interval'}>
-                            <Button duration={'1 день'} num={0} onClick={() => setVariation(0)} variation={variation}/>
-                            <Button duration={'2 дня'} num={1} onClick={() => setVariation(1)} variation={variation}/>
-                            <Button duration={'3 дня'} num={2} onClick={() => setVariation(2)} variation={variation}/>
-                        </div>
-                        <CardItem forecast={forecast} variation={variation}/>
-                    </div>}
-                <input
-                    type={'image'}
-                    src={CloudsBackground}
-                    className={'clouds_background clouds_background__forecast'}
-                    alt={'background'}
-                />
-            </div>
+        <div className="App">
+            <Navbar logo={true}/>
+            <SearchField text={'Поиск...'} setName={setName} name={name} places={places} setPlaces={setPlaces}/>
+            {isLoading
+                ? <Loader/>
+                : <div>
+                    <Location forecast = {forecast} />
+                    <div className={'interval'}>
+                        <Button duration={'1 день'} num={0} onClick={() => setVariation(0)} variation={variation}/>
+                        <Button duration={'2 дня'} num={1} onClick={() => setVariation(1)} variation={variation}/>
+                        <Button duration={'3 дня'} num={2} onClick={() => setVariation(2)} variation={variation}/>
+                    </div>
+                    <CardItem forecast={forecast} variation={variation}/>
+                </div>}
+            <input
+                type={'image'}
+                src={CloudsBackground}
+                className={'clouds_background clouds_background__forecast'}
+                alt={'background'}
+            />
         </div>
     );
 };
