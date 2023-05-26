@@ -14,16 +14,21 @@ const SPB_LAT = 59.9;
 const Forecast = () => {
     const [forecast, setForecast] = useState([]);
     const [name, setName] = useState('');
+    const [places, setPlaces] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [variation, setVariation] = useState(0);
-
     const [params, setParams] = useSearchParams();
+
     const lat = params.get('lat');
     const lon = params.get('lon');
 
     useEffect (() => {
         fetchForecast();
     }, [])
+
+    useEffect(() => {
+        if (name.length !== 0) fetchCoords();
+    }, [name])
 
     async function fetchForecast() {
         if (lat == null || lon == null) {
@@ -37,10 +42,17 @@ const Forecast = () => {
         })
     }
 
+    async function fetchCoords() {
+        setTimeout(async () => {
+            const coords = await WeatherService.getCoords(name);
+            setPlaces(coords);
+        })
+    }
+
     return (
         <div>
             <div className="App">
-                <SearchField text={'Поиск...'} setName={setName}/>
+                <SearchField text={'Поиск...'} setName={setName} name={name} places={places} setPlaces={setPlaces}/>
                 {isLoading
                     ? <Loader/>
                     : <div>

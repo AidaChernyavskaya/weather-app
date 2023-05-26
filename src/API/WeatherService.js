@@ -31,6 +31,7 @@ export default class PostService {
             params: {
                 q: name,
                 appid: process.env.REACT_APP_APPID,
+                limit: 15,
             }
         });
         return response.data;
