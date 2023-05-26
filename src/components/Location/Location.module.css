@@ -9,5 +9,10 @@
   height: 5rem;
   margin-right: 0.5rem;
 }
+@media (max-width: 600px) {
+  .location {
+    margin-left: 3.5rem;
+  }
+}
 
 /*# sourceMappingURL=Location.module.css.map */

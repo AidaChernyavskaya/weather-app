@@ -10,6 +10,16 @@
   margin: 5rem auto auto 6rem;
   display: flex;
 }
+@media (max-width: 920px) {
+  .card {
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    margin: 5rem auto 5rem;
+  }
+}
 
 .divider {
   display: block;
@@ -17,6 +27,13 @@
   height: 17.3rem;
   background: #8098ff;
   margin: 0 1.5rem;
+}
+@media (max-width: 920px) {
+  .divider {
+    height: 0.3rem;
+    width: 100%;
+    margin: 2.5rem 0;
+  }
 }
 
 /*# sourceMappingURL=CardItem.module.css.map */
