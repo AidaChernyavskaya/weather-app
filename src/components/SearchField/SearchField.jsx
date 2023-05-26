@@ -5,10 +5,13 @@ import styles from './SearchField.module.css';
 import cn from "classnames";
 
 const SearchField = ({text, setName, name, places}) => {
+    const length = places.length;
+    let i = 0;
+
     const submitSearch = () => {
         setName('');
         if (places.length !== 0) {
-            window.location.replace(`/forecast?lat=${places[0].lat.toFixed(1)}&lon=${places[0].lon.toFixed(1)}`);
+            window.location.replace(`/forecast?lat=${places[i].lat}&lon=${places[i].lon}`);
         }
     }
 
@@ -26,6 +29,18 @@ const SearchField = ({text, setName, name, places}) => {
         }
         if (event.key === 'Escape'){
             cancelSearch();
+        }
+        if (event.key === 'ArrowDown'){
+            if (i < length){
+                document.getElementById(`place${i}`).focus();
+                i++;
+            }
+        }
+        if (event.key === 'ArrowUp'){
+            if (i > 0) {
+                document.getElementById(`place${i-1}`).focus();
+                i--;
+            }
         }
     }
 
@@ -62,9 +77,11 @@ const SearchField = ({text, setName, name, places}) => {
                 <ul className={styles.dropdown__menu}>
                     {places.map((place, index) =>
                         <a
-                            href={`/forecast?lat=${place.lat.toFixed(1)}&lon=${place.lon.toFixed(1)}`}
+                            href={`/forecast?lat=${place.lat}&lon=${place.lon}`}
                             className={styles.dropdown__item}
                             key={index}
+                            onKeyDown={handleKeyPress}
+                            id={`place${index}`}
                         >
                             {place.name}<span>, {place.state}</span>
                         </a>
