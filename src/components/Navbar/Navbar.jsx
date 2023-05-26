@@ -8,10 +8,11 @@ const Navbar = () => {
     return (
         <div className={styles.navbar}>
             <input type={'image'} src={ToDarkTheme} className={styles.navbar__theme} alt={''}/>
-            <input type={'image'} src={Logo} className={styles.navbar__logo} alt={''}/>
+            <a href={'/'} className={styles.navbar__logo}>
+                <input type={'image'} src={Logo} alt={''}/>
+            </a>
             <div className={styles.navbar__links}>
                 <Link to={'/about'}>О приложении</Link>
-                <Link to={'/'}>Главная</Link>
             </div>
         </div>
     );
