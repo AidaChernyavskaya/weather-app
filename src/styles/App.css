@@ -7,6 +7,7 @@
 html {
   font-size: 62.5%;
   font-family: "Roboto Light", sans-serif;
+  background: white;
 }
 @media (max-width: 600px) {
   html {
@@ -51,7 +52,7 @@ html {
 
 .clouds_background {
   position: absolute;
-  z-index: -5;
+  z-index: 0;
 }
 .clouds_background__forecast {
   right: 2rem;
@@ -135,6 +136,27 @@ html {
   font-size: 2rem;
   color: black;
   text-decoration: none;
+}
+
+.dark {
+  background: #252527;
+  height: 100vh;
+  width: 100vw;
+}
+.dark p {
+  color: #fff4e5;
+}
+.dark h1, .dark h2, .dark h3 {
+  color: white;
+}
+.dark .clouds_background__forecast {
+  opacity: 0.7;
+}
+.dark .error__button a {
+  color: white;
+}
+.dark .error__button {
+  background: #ef7902;
 }
 
 /*# sourceMappingURL=App.css.map */

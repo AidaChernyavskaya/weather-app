@@ -9,6 +9,8 @@
   font-size: 1.4rem;
   margin: 5rem auto auto 6rem;
   display: flex;
+  z-index: 20;
+  position: relative;
 }
 @media (max-width: 920px) {
   .card {
@@ -34,6 +36,10 @@
     width: 100%;
     margin: 2.5rem 0;
   }
+}
+
+.dark {
+  border: 0.1rem solid white !important;
 }
 
 /*# sourceMappingURL=CardItem.module.css.map */

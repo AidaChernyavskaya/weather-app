@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./CardItem.module.css";
 import InnerCard from "../InnerCard/InnerCard";
 
-const CardItem = ({forecast, variation}) => {
+const CardItem = ({forecast, variation, theme}) => {
 
     if(!Object.keys(forecast).length) {
         return (
@@ -33,7 +33,7 @@ const CardItem = ({forecast, variation}) => {
     }
 
     return (
-        <div className={cn(styles.card, styles.outline)}>
+        <div className={cn(styles.card, styles.outline, theme === 'dark' ? styles.dark : undefined)}>
             {content}
         </div>
     );

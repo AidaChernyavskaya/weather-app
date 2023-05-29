@@ -32,14 +32,20 @@
   font-size: 1.6rem;
 }
 .navbar__links a:not(:last-child) {
-  margin-right: 2rem;
+  margin-right: 1.5rem;
 }
 .navbar__links a:hover {
   color: black;
 }
 
-.active {
-  color: black !important;
+.dark {
+  background: #252527;
+}
+.dark .navbar__links a {
+  color: #dacec2;
+}
+.dark .navbar__links a:hover {
+  color: white;
 }
 
 /*# sourceMappingURL=Navbar.module.css.map */
