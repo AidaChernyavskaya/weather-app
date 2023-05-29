@@ -33,4 +33,11 @@
   margin-right: 1.5rem;
 }
 
+.dark {
+  background: #252527;
+}
+.dark .navbar__links a {
+  color: white;
+}
+
 /*# sourceMappingURL=Navbar.module.css.map */
