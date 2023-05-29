@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import Search from "../../icons/search.png";
+import SearchDark from "../../icons/search-dark.png";
 import Close from "../../icons/close.png";
+import CloseDark from "../../icons/close-dark.png";
 import styles from './SearchField.module.css';
 import cn from "classnames";
 
-const SearchField = ({text, setName, name, places}) => {
+const SearchField = ({text, setName, name, places, theme}) => {
     const length = places.length;
     let i = 0;
 
@@ -45,11 +47,11 @@ const SearchField = ({text, setName, name, places}) => {
     }
 
     return (
-        <div className={styles.search}>
+        <div className={cn(styles.search, theme === 'dark' ? styles.dark : undefined)}>
             <div className={cn (styles.search_field, name.length >= 1 && styles.search_field__open )}>
                 <input
                     type={'image'}
-                    src={Search}
+                    src={theme === 'dark' ? SearchDark : Search}
                     className={styles.search_icon}
                     onClick={submitSearch}
                     alt={'search icon'}
@@ -65,7 +67,7 @@ const SearchField = ({text, setName, name, places}) => {
                 {name !== '' &&
                     <input
                         type={'image'}
-                        src={Close}
+                        src={theme === 'dark' ? CloseDark : Close}
                         className={styles.close_icon}
                         onClick={cancelSearch}
                         alt={'close icon'}

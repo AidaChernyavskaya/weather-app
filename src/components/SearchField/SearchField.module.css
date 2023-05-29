@@ -101,4 +101,28 @@
   color: dimgray;
 }
 
+.dark .search_field {
+  border: 0.3rem solid white;
+}
+.dark input {
+  color: #fff4e5;
+}
+.dark input::placeholder {
+  color: #dacec2;
+}
+.dark .dropdown {
+  background: #252527;
+  border: 0.3rem solid white;
+  border-top: none;
+}
+.dark .dropdown__item:hover {
+  background: #484747;
+}
+.dark .dropdown a {
+  color: #fff4e5;
+}
+.dark .warning {
+  color: #dacec2;
+}
+
 /*# sourceMappingURL=SearchField.module.css.map */

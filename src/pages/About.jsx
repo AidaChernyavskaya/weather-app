@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from "../components/Navbar/Navbar";
-import {ThemeContext, themes} from "../contexts/ThemeContext";
-import cn from "classnames";
+import {ThemeContext} from "../contexts/ThemeContext";
 
 const About = () => {
     return (
