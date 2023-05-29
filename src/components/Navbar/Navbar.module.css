@@ -42,6 +42,9 @@
   background: #252527;
 }
 .dark .navbar__links a {
+  color: #dacec2;
+}
+.dark .navbar__links a:hover {
   color: white;
 }
 
