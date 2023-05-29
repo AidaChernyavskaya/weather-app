@@ -29,4 +29,11 @@
   background: #FFBA75;
 }
 
+.dark .interval__duration_active {
+  color: #5D81FF;
+}
+.dark .interval__line_active {
+  background: #FE9934;
+}
+
 /*# sourceMappingURL=Button.module.css.map */

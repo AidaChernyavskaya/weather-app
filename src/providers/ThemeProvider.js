@@ -11,7 +11,10 @@ const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(getTheme)
 
     useEffect(() => {
-        localStorage.setItem('theme', theme)
+        localStorage.setItem('theme', theme);
+
+        let html = document.querySelector("html");
+        theme === 'dark' ? html.classList.add('dark') : html.classList.remove('dark');
     }, [theme])
 
     return (
