@@ -6,7 +6,7 @@ import Error404 from "../../pages/Error404";
 
 export const routes = [
     {path: '/about', element: <About/>},
-    {path: '/', element: <Main/>},
+    {path: '/main', element: <Main/>},
     {path: '/forecast', element: <Forecast/>},
     {path: '/error', element: <Error404/>},
 ]

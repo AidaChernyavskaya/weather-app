@@ -24,7 +24,7 @@ const Navbar = ({logo, page}) => {
                         }}
                     />
                     {logo &&
-                        <a href={'/'} className={styles.navbar__logo}>
+                        <a href={'/main'} className={styles.navbar__logo}>
                             <input type={'image'} src={theme === 'dark' ? LogoDark : Logo} alt={''}/>
                         </a>
                     }
