@@ -152,5 +152,11 @@ html {
 .dark .clouds_background__forecast {
   opacity: 0.7;
 }
+.dark .error__button a {
+  color: white;
+}
+.dark .error__button {
+  background: #ef7902;
+}
 
 /*# sourceMappingURL=App.css.map */
