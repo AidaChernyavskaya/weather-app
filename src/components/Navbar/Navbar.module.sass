@@ -4,7 +4,7 @@
   margin-bottom: 3.5rem
   padding: 0 2rem
   display: grid
-  grid-template-columns: minmax(min-content, 25.9rem) auto max-content
+  grid-template-columns: max-content auto max-content
   align-items: center
   &__theme
     width: 3rem
@@ -12,17 +12,23 @@
     cursor: pointer
     grid-column: 1/2
   &__logo
-    width: 19rem
-    height: 6rem
     grid-column: 2/3
     justify-self: center
-    cursor: default
+    cursor: pointer
+    input
+      width: 19rem
+      height: 6rem
   &__links
     grid-column: 3/4
     & a
       text-decoration: none
-      color: black
+      color: #7b7b7b
       font-weight: 300
       font-size: 1.6rem
       &:not(:last-child)
-        margin-right: 1.5rem
+        margin-right: 2rem
+      &:hover
+        color: black
+
+.active
+  color: black !important

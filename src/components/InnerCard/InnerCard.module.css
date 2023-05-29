@@ -1,10 +1,14 @@
 .inner_card {
   width: 30rem;
 }
-
 @media (max-width: 1060px) {
   .inner_card {
-    width: 22rem;
+    width: 25rem;
+  }
+}
+@media (max-width: 920px) {
+  .inner_card {
+    width: 33rem;
   }
 }
 
