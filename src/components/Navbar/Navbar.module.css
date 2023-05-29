@@ -4,7 +4,7 @@
   margin-bottom: 3.5rem;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: minmax(min-content, 25.9rem) auto max-content;
+  grid-template-columns: max-content auto max-content;
   align-items: center;
 }
 .navbar__theme {
@@ -14,11 +14,13 @@
   grid-column: 1/2;
 }
 .navbar__logo {
-  width: 19rem;
-  height: 6rem;
   grid-column: 2/3;
   justify-self: center;
-  cursor: default;
+  cursor: pointer;
+}
+.navbar__logo input {
+  width: 19rem;
+  height: 6rem;
 }
 .navbar__links {
   grid-column: 3/4;

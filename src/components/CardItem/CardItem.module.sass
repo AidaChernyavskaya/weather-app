@@ -8,6 +8,10 @@
   font-size: 1.4rem
   margin: 5rem auto auto 6rem
   display: flex
+  @media (max-width: 920px)
+    flex-direction: column
+  @media (max-width: 600px)
+    margin: 5rem auto 5rem
 
 .divider
   display: block
@@ -15,3 +19,7 @@
   height: 17.3rem
   background: #8098ff
   margin: 0 1.5rem
+  @media (max-width: 920px)
+    height: .3rem
+    width: 100%
+    margin: 2.5rem 0

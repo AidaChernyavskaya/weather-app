@@ -8,10 +8,9 @@ const Navbar = ({logo, page}) => {
     return (
         <div className={styles.navbar}>
             <input type={'image'} src={ToDarkTheme} className={styles.navbar__theme} alt={''}/>
-            {logo && <input type={'image'} src={Logo} className={styles.navbar__logo} alt={''}/>}
+            {logo && <a href={'/'} className={styles.navbar__logo}><input type={'image'} src={Logo} alt={''}/></a>}
             <div className={styles.navbar__links}>
-                <Link to={'/about'} className={page === 'about' ? styles.active : undefined}>О приложении</Link>
-                <Link to={'/'} className={page === 'main' ? styles.active : undefined}>Главная</Link>
+                <Link to={'/about'}>О приложении</Link>
             </div>
         </div>
     );
