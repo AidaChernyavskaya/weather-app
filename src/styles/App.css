@@ -8,6 +8,11 @@ html {
   font-size: 62.5%;
   font-family: "Roboto Light", sans-serif;
 }
+@media (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   background: white;
@@ -41,6 +46,12 @@ body {
   height: 0.5rem;
   background: #FFBA75;
 }
+@media (max-width: 600px) {
+  .interval {
+    justify-content: space-between;
+    margin-left: 3.5rem;
+  }
+}
 
 .clouds_background {
   position: absolute;
@@ -60,9 +71,14 @@ body {
 }
 
 .about {
-  margin-top: 20rem;
+  margin: 20rem auto auto auto;
+  width: 80%;
   font-size: 2rem;
-  text-align: center;
+  text-align: justify;
+}
+.about a {
+  text-decoration: none;
+  color: #4B6DE6;
 }
 
 .logo {
@@ -71,6 +87,58 @@ body {
   cursor: default;
   display: block;
   margin: 0 auto 5rem auto;
+}
+
+.error {
+  width: 50rem;
+  height: 50rem;
+  margin: -3rem auto 0 auto;
+  display: block;
+}
+.error__text {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.error__button {
+  background: #FFBA75;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  padding: 1.5rem 7rem;
+  margin: 0 auto;
+  display: block;
+}
+.error__button a {
+  font-weight: bolder;
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+}
+@media (max-width: 950px) {
+  .error {
+    width: 75rem;
+    height: 29rem;
+  }
+}
+@media (max-width: 750px) {
+  .error {
+    width: 55rem;
+    height: 22rem;
+  }
+}
+@media (max-width: 600px) {
+  .error {
+    margin-bottom: 10rem;
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 450px) {
+  .error {
+    width: 39rem;
+    height: 17rem;
+    margin-top: 10rem;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

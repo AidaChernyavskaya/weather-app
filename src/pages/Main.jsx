@@ -3,6 +3,7 @@ import LogoBig from "../icons/logo-big.png";
 import SearchField from "../components/SearchField/SearchField";
 import CloudsBackground from "../icons/clouds-background.png";
 import WeatherService from "../API/WeatherService";
+import Navbar from "../components/Navbar/Navbar";
 
 const Main = () => {
     const [name, setName] = useState('');
@@ -22,6 +23,7 @@ const Main = () => {
 
     return (
         <div>
+            <Navbar logo={false} page={'main'}/>
             <input type={'image'} src={LogoBig} alt={''} className={'logo'}/>
             <SearchField
                 text={'Узнай погоду в своем городе...'}

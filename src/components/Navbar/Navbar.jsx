@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 import {ThemeContext, themes} from "../../contexts/ThemeContext";
 import cn from "classnames";
 
-const Navbar = () => {
+const Navbar = ({logo, page}) => {
     return (
         <ThemeContext.Consumer>
             {({theme, setTheme}) => (
@@ -22,15 +22,13 @@ const Navbar = () => {
                             if (theme === themes.dark) setTheme(themes.light)
                         }}
                     />
-                    <input type={'image'} src={Logo} className={styles.navbar__logo} alt={''}/>
+                    {logo && <a href={'/'} className={styles.navbar__logo}><input type={'image'} src={Logo} alt={''}/></a>}
                     <div className={styles.navbar__links}>
                         <Link to={'/about'}>О приложении</Link>
-                        <Link to={'/'}>Главная</Link>
                     </div>
                 </div>
             )}
         </ThemeContext.Consumer>
-
     );
 };
 
