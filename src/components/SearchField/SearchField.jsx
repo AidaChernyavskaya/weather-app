@@ -14,7 +14,7 @@ const SearchField = ({text, setName, name, places, theme}) => {
     const submitSearch = () => {
         setName('');
         if (places.length !== 0) {
-            window.location.replace(`/forecast?lat=${places[i].lat}&lon=${places[i].lon}`);
+            window.location.replace(`/weather-app/#/forecast?lat=${places[i].lat}&lon=${places[i].lon}`);
         }
     }
 
