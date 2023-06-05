@@ -5,6 +5,7 @@ import Close from "../../icons/close.png";
 import CloseDark from "../../icons/close-dark.png";
 import styles from './SearchField.module.css';
 import cn from "classnames";
+import {Link} from "react-router-dom";
 
 const SearchField = ({text, setName, name, places, theme}) => {
     const length = places.length;
@@ -78,15 +79,15 @@ const SearchField = ({text, setName, name, places, theme}) => {
                 <hr />
                 <ul className={styles.dropdown__menu}>
                     {places.map((place, index) =>
-                        <a
-                            href={`/forecast?lat=${place.lat}&lon=${place.lon}`}
+                        <Link
+                            to={`/forecast?lat=${place.lat}&lon=${place.lon}`}
                             className={styles.dropdown__item}
                             key={index}
                             onKeyDown={handleKeyPress}
                             id={`place${index}`}
                         >
                             {place.name}<span>, {place.state}</span>
-                        </a>
+                        </Link>
                     )}
                     {places.length === 0 && <div className={styles.warning}>Местоположение не найдено</div>}
                 </ul>

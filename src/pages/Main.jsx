@@ -19,7 +19,6 @@ const Main = () => {
         setTimeout(async () => {
             const coords = await WeatherService.getCoords(name);
             setPlaces(coords);
-            console.log(coords);
         })
     }
 

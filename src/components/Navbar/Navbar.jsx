@@ -24,9 +24,9 @@ const Navbar = ({logo, page}) => {
                         }}
                     />
                     {logo &&
-                        <a href={'/'} className={styles.navbar__logo}>
+                        <Link to={'/'} className={styles.navbar__logo}>
                             <input type={'image'} src={theme === 'dark' ? LogoDark : Logo} alt={''}/>
-                        </a>
+                        </Link>
                     }
                     <div className={styles.navbar__links}>
                         <Link to={'/about'}>О приложении</Link>
