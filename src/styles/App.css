@@ -52,7 +52,7 @@ html {
 
 .clouds_background {
   position: absolute;
-  z-index: 0;
+  z-index: -50;
 }
 .clouds_background__forecast {
   right: 2rem;
